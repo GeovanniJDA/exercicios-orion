@@ -1,0 +1,9 @@
+services:
+  app:
+    build: .
+    ports:
+      - "3000:3000"
+    # Optional live editing: local src/ is mounted and node restarts on change
+    volumes:
+      - ./src:/app/src
+    command: ["node", "--watch", "src/index.js"]
