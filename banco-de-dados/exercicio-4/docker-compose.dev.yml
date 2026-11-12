@@ -1,0 +1,21 @@
+services:
+  db_postgres:
+    image: postgres:16-alpine
+    environment:
+      POSTGRES_DB: orion_db
+      POSTGRES_USER: orion_user
+      POSTGRES_PASSWORD: orion_password
+    ports:
+      - "5432:5432"
+    volumes:
+      - ./data/dev/postgres:/var/lib/postgresql/data
+
+  db_mongo:
+    image: mongo:7
+    environment:
+      MONGO_INITDB_ROOT_USERNAME: orion_admin
+      MONGO_INITDB_ROOT_PASSWORD: orion_admin_pass
+    ports:
+      - "27017:27017"
+    volumes:
+      - ./data/dev/mongo:/data/db
