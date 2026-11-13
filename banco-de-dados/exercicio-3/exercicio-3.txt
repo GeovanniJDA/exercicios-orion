@@ -1,0 +1,17 @@
+use blog
+db.createCollection("posts")
+
+db.posts.insertOne({
+  titulo: "Introducao ao MongoDB",
+  autor: "Geovanni",
+  conteudo: "MongoDB guarda documentos JSON em colecoes."
+})
+
+db.posts.insertOne({
+  titulo: "Por que NoSQL?",
+  autor: "Maria",
+  conteudo: "Schema flexivel permite estruturas diferentes na mesma colecao.",
+  tags: ["nosql", "flexivel"]
+})
+
+db.posts.find()

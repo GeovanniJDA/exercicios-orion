@@ -1,0 +1,19 @@
+use blog
+
+db.posts.updateOne(
+  { titulo: "Por que NoSQL?" },
+  {
+    $set: {
+      comentarios: [
+        { autor: "Ana", texto: "Otimo post!", data: new Date() },
+        { autor: "Bruno", texto: "Faz sentido para dados sem schema fixo.", data: new Date() }
+      ]
+    }
+  }
+)
+
+db.posts.find({ tags: "nosql" })
+
+db.posts.find({ autor: "Maria" })
+
+db.posts.find({ "comentarios.autor": "Ana" })
